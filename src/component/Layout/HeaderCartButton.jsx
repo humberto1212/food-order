@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import CartButton from '../Cart/CartButton'
 
+function HeaderCartButton(props) {
 
-function HeaderCartButton() {
   return (
-    <CartButton/>
+    <>
+      <CartButton onShowCart={props.onShowCart}/>
+    </>
   )
 }
 

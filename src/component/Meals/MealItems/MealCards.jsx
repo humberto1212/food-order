@@ -1,11 +1,26 @@
-import React from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import MealItemForm from './MealItemForm';
+import {CartContext} from '../../../store/CartContext';
 
 export default function MealCards(props) {
+ //const [numValue, setNumValue] = useState()
+  
+ let cartCtx = useContext(CartContext); 
+
+ const addToCartHandle = (numValue) =>{
+   
+  cartCtx.addItem({
+    id: props.id,
+    name: props.name,
+    amount: numValue,
+    price: props.price,
+  })
+
+  }
 
   return (
   
@@ -23,7 +38,7 @@ export default function MealCards(props) {
         </Typography>
       </CardContent>
       <CardActions>
-         <MealItemForm /> 
+         <MealItemForm onAddToCard={addToCartHandle} id={props.id} /> 
       </CardActions>
     </Card>
   </li>

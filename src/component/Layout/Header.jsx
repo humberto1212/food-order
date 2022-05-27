@@ -5,12 +5,12 @@ import HeaderCartButton from './HeaderCartButton'
 
 
 
-function Header() {
+function Header(props) {
   return (
     <div>
         <header className='header-style'>
             <h1>FOOD-APP</h1>
-             <HeaderCartButton/>
+             <HeaderCartButton onShowCart={props.onShowCart}/>
         </header>
     </div>
     
