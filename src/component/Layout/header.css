@@ -1,7 +1,0 @@
-.header-style{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: rgba(0, 187, 255, 0.036);
-    border-bottom: solid;
-}
