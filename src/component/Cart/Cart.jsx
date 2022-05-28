@@ -1,14 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Button } from '@mui/material'
 import BasicModal from '../UI/Modal'
+import {CartContext} from '../../store/CartContext'
 
 function Cart(props) {
+
+  const cartCtx = useContext(CartContext)
+
+
   return (
       <>
       <BasicModal onHideCart={props.onHideCart}>
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span>Total amount:</span>
-            <span>!!..Total price dinamic..!!</span>
+            <span>Total amount: {cartCtx.totalAmount}</span>
         </div>
         <div>
             <Button onClick={props.onHideCart}>Close</Button>
