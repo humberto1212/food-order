@@ -7,12 +7,11 @@ function Cart(props) {
 
   const cartCtx = useContext(CartContext)
 
-
   return (
       <>
       <BasicModal onHideCart={props.onHideCart}>
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span>Total amount: {parseFloat(cartCtx.totalAmount).toFixed(2)}</span>
+            <span>Total amount: ${parseFloat(cartCtx.totalAmount).toFixed(2)}</span>
         </div>
         <ul style={{display: 'flex', flexDirection: 'column'}}>
           {
@@ -23,7 +22,10 @@ function Cart(props) {
         </ul>
         <div>
             <Button onClick={props.onHideCart}>Close</Button>
-            <Button>Order</Button>
+            {
+              cartCtx.totalAmount > 0 && <Button>Order</Button> 
+            }
+            
         </div>
     </BasicModal>
     </>
