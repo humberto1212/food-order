@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import { Box } from '@mui/system'
 import { Button } from '@mui/material'
 import Input from '../../UI/Input'
@@ -14,17 +14,17 @@ const amountInputRef = useRef();
      const enteredAmount = amountInputRef.current[0].value
      const enteredAmountNumber = +enteredAmount
     
-
-
        if(enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5){
         setAmountIsValid(false)
         return
        }
-       
-    //props.onSetNumValue(enteredAmountNumber)
+  
     props.onAddToCard(enteredAmountNumber)
-  }
 
+
+  }
+  
+  
   return (
     <Box
     component='form'

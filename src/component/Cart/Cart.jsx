@@ -12,8 +12,15 @@ function Cart(props) {
       <>
       <BasicModal onHideCart={props.onHideCart}>
         <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span>Total amount: {cartCtx.totalAmount}</span>
+            <span>Total amount: {parseFloat(cartCtx.totalAmount).toFixed(2)}</span>
         </div>
+        <ul style={{display: 'flex', flexDirection: 'column'}}>
+          {
+            cartCtx.items.map((item) => {
+              return <li key={item.id}>{item.name}: {item.amount}</li>
+            })
+          }
+        </ul>
         <div>
             <Button onClick={props.onHideCart}>Close</Button>
             <Button>Order</Button>
